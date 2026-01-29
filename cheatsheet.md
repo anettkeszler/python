@@ -197,6 +197,65 @@ print('Adding the value of {} and {} = {}'.format(a, b, result))    # direct for
     - using f-string
     - format() method 
 
+### Math and Logical operators / + 05_mathematical_operators.py
+Operations in Python can be:
+1. **Mathematical / Arithmetic Operators**: 
+    - addition: +
+    - subtraction: -
+    - division: / 
+    - multiplication: * 
+2. **Logical Operators**: <br>
+They used in **conditional statements** to determine a True or False outcome
+    - and: checks for all conditions to be true 
+    - or: checks for at least one conditions to be true 
+    - not: return false if the result is true 
+3. **Comparison Operators**:
+```
+x == y      # equal to
+x!= y       # not equal to
+x < y       # less than
+x =< y      # less than or equal to
+x > y       # greater than
+x => y      # greater than or equal to
+```
+
+### Conditional statements / + 06_conditionals.py
+- Control flow refers to the order in which the instructions in a program are executed 
+- **Control flows can be**:
+    - **Conditional** (statements): if, else, else if (elif)
+    - **Loops**: for loop, while loop 
+
+#### Match statement 
+- compares a value to several different conditions until one of these conditions is met 
+- use match statement when you **test a variable against many conditions** 
+- match statement is an alternative of the if statement 
+
+### Loops / + 07_loops.py
+- Looping is used to iterate through the sequence and access each item inside the sequence
+
+- FOR LOOP:
+    - The for loop is based on the size or length of the elements to iterate over. 
+    - in a standard for loop, I don't have access to the index, but I can use the enumerate() function to do that:
+    ```
+    favorites = ['Banana', 'Apple', 'Tiramisu', 'Cake']
+
+    for idx, item in enumerate(favorites):
+        print(idx, item)
+    ```
+- WHILE LOOP:
+    - based upon a condition being true. Once the condition is no longer true the loop stops. 
+    - need the set up a condition, than a counter and set the count to 0
+    - the loop will run while the count is less than the length of the list 
+    - I have to increment the count by 1 at the end of the block, if not, it will end up in an infinite loop (keep looping until the compiler stops it from running out of memory)
+
+#### Control flows:
+- So far you looped over sequences based on the length of the data you wanted to iterate over 
+- But in many cases, not necessary to iterate over the whole sequence, and you can control the flow of the loop and exit when a specific condition is met
+- Control statements: **break, continue, pass**
+    - break: will exit the loop when the given condition is met
+    - continue: allows you to skip over a section of the loop but then continue on with the rest
+    - pass: acts as a placeholder, allowing you to include an empty block of code without causing a syntax error. It does nothing and allows the program to continue execution normally.
+
 
 
 ### Sources: 
@@ -208,9 +267,16 @@ https://www.w3schools.com/python/
 
 - HackerRank: https://www.hackerrank.com/domains/python
 
+- LeetCode: https://leetcode.com/problems/two-sum/description/?envType=problem-list-v2&envId=wpr69ksr
+
+- RunStone Academy: Python Problem Solving and Data Structures
+https://runestone.academy/ns/books/published/pythonds/index.html
+
 # TODO
 - at least 3 Python project to practice
 - Python quizes on RealPython 
+- RunStone Academy - a lot of small tasks, seems to be very good for practice
+
 
 
 
