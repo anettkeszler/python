@@ -256,6 +256,155 @@ x => y      # greater than or equal to
     - continue: allows you to skip over a section of the loop but then continue on with the rest
     - pass: acts as a placeholder, allowing you to include an empty block of code without causing a syntax error. It does nothing and allows the program to continue execution normally.
 
+### Functions / + 08_functions_variable_scope.py
+- function is a piece of code that can be re-used repeatedly
+- input --> function body --> output
+
+#### Useful built-in functions
+```
+callable()      # Checks if an object can be called as a function
+dir()           # Lists attributes and methods
+globals()       # Get a dictionary of the current global symbol table  
+hash()          # Get the hash value
+id()            # Get the unique identifier
+locals()        # Get a dictionary of the current local symbol table
+repr()          # Get a string representation for debugging
+
+```
+### Variable scoping
+- The purpose of scope is to protect the variable 
+- Scopes in Python: **local, enclosed, global, built-in (LEGB)**
+- Variables in Python are implicitly declared when you define them, meaning unlike other programming languages, there is no special declaration for them
+- Scope determines where your variable is visible and directly accessible in your program 
+
+1. **Local Scope**: 
+- refers to a variable that is declared inside a function
+- outside of the function will not have access to it
+- when you attempt to access the variable outside of the function, Python raises a **NameError** because the variable is out of scope.
+- (NameError: name 'total' is not defined)
+
+2. **Enclosing Scope**: 
+- refers to a function inside another function or what is commonly called a nested function
+
+3. **Global Scope**: 
+- accessible from anywhere in the code 
+- when a variable is declared outside of a function
+
+4. **Built-in Scope**: 
+- accessible from anywhere in the code
+- built-in functions and objects, such as print()and def 
+- Built-in scope covers all the language of Python
+
+### Data Structures
+- A Collection is any data structure that can store multiple items 
+- If an Object is a Collection, you can loop through it. (String is also iterable.)
+- Use len() to get the size of a collection 
+- Built-In Data Structures in Python: 
+    - List
+    - Tuple
+    - Set
+    - Dictionary
+- User-Defined Data Structures in Python:
+    - Stack
+    - Queue
+    - Tree
+    - LinkedList
+    - Graph
+    - HashMap
+
+### Lists
+- Lists are a sequence of one or more different or similar datatypes 
+- In Python, it is a dynamic array that can hold any datatype 
+- List items can be accessed by its index
+- List is iterable, you can iterate over it with a foor loop to access all items
+- List methods:
+```
+nums.append(4)                  # add 4 at the end
+nums.insert(0, 5)               # insert 5 at index 0
+nums.extend(["z", 3, True])     # extend with iterable 
+nums.remove(7)                  # remove first 7 
+nums.pop(0)                     # will remove the first item
+del nums[index]                 # removes the item on given index                   
+```
+### Tuples
+- my_tuple = ()
+- tuples can accept any data types
+- tuple.count("hello") - counts the occurance of the given value
+- tuple.index("hello") - gets the index of a given value
+- you can iterate over a tuple with a for loop
+- key difference between lists and tuples, that tuples are **immutable**, means that they **can not be changed**
+- **Immutability**: Once a tuple is created, its elements cannot be changed. 
+- While you can access elements using indexing, you can't modify them or add new ones after creation
+
+### Sets
+- Sets are collections with **no duplicates** and **unordered item** 
+- Set is **not a sequence**, so it **cannot be indexed**. You cannot reach the items by its index (not ordered)
+- Set methods:
+    - **set.add(value)** - item will be added at the end
+    - s**et.remove(value)** - given value will be removed
+    - **set.discard(value)** - same as remove
+- **Mathematical operations on sets**:
+    - **Union**: merges the 2 sets, but exclude the duplicates
+    ```
+    set1.union(set2) 
+    set1 | set2
+    ```
+    - **Intersection**: get back the values which occures in both sets (& - ampersand)
+    ```
+    set1.intersection(set2)
+    set1 & set2
+    ```
+    - **Difference**: get back all the elements that are only in set1, and not in set2
+    ```
+    set1.difference(set2)
+    set1 - set2
+    ```
+    - **Symmetrical difference**: get back all the elements that are present in set_a or set_b, but not in both sets (carrot(^) operator)
+    ```
+    set1.symmetric_difference(set2)
+    set1 ^ set2
+    ```
+
+### Dictionaries
+- Dictionaries access values based on keys (not on index as lists)
+- Faster and more flexible as lists: you can go straight to the item you need based on its key
+- we assign the key to a specific value --> called **key-value pair**
+- Mutable, values can be changed or updated 
+- Access the value based on the key:
+```
+print(my_dict[2])   # 'Tea' - gives you the value corresponding to the given key
+```
+- Update dictionary by replacing an item:
+```
+my_dict[2] = "Mint tea"   # updates the value based on the key
+```
+- Delete a key-value pair from the dictionary based on the key:
+```
+del my_dict[3]
+print(my_dict)  # {1: 'Coffee', 2: 'Mint Tea'} 
+```
+- Adding a key-value pair to the dictionary:
+```
+my_dict[3] = 'Cocoa'
+print(my_dict)          # {1: 'Coffee', 2: 'Mint Tea', 3: 'Cocoa'}
+```
+- If I try to add a duplicate key, it doesn't allow this, keys must be unique
+
+
+### Exceptions, Errors, Exception handling
+1. **Syntax Error**: 
+    - usually caused by the developer (misspelling/typo or indentation issues)
+    - has minimal impact, because most IDEs warns the developer and gives ideas how to fix them 
+2. **Exception Error**: 
+    - an error during execution/runtime causes an exception  
+    - exceptions need to be handled by the developer
+    - Common exceptions:
+        - ValueError: invalid value
+        - TypeError: wrong type
+        - IndexError: list index out of range
+        - KeyError: dictionary key not found
+        - FileNotFoundError: file doesn't exist
+
 
 
 ### Sources: 
@@ -272,7 +421,13 @@ https://www.w3schools.com/python/
 - RunStone Academy: Python Problem Solving and Data Structures
 https://runestone.academy/ns/books/published/pythonds/index.html
 
+- More On Data Structures:<br>
+https://realpython.com/python-data-structures/ <br>
+    Lists: https://docs.python.org/3/tutorial/datastructures.html
+
+
 # TODO
+- check lambda functions
 - at least 3 Python project to practice
 - Python quizes on RealPython 
 - RunStone Academy - a lot of small tasks, seems to be very good for practice
