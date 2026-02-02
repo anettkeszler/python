@@ -312,7 +312,7 @@ repr()          # Get a string representation for debugging
     - Graph
     - HashMap
 
-### Lists
+### Lists / + 09_lists.py
 - Lists are a sequence of one or more different or similar datatypes 
 - In Python, it is a dynamic array that can hold any datatype 
 - List items can be accessed by its index
@@ -326,7 +326,7 @@ nums.remove(7)                  # remove first 7
 nums.pop(0)                     # will remove the first item
 del nums[index]                 # removes the item on given index                   
 ```
-### Tuples
+### Tuples / + 10_tuples.py
 - my_tuple = ()
 - tuples can accept any data types
 - tuple.count("hello") - counts the occurance of the given value
@@ -336,7 +336,7 @@ del nums[index]                 # removes the item on given index
 - **Immutability**: Once a tuple is created, its elements cannot be changed. 
 - While you can access elements using indexing, you can't modify them or add new ones after creation
 
-### Sets
+### Sets / + 11_sets.py
 - Sets are collections with **no duplicates** and **unordered item** 
 - Set is **not a sequence**, so it **cannot be indexed**. You cannot reach the items by its index (not ordered)
 - Set methods:
@@ -365,7 +365,7 @@ del nums[index]                 # removes the item on given index
     set1 ^ set2
     ```
 
-### Dictionaries
+### Dictionaries / + 12_dictionaries.py
 - Dictionaries access values based on keys (not on index as lists)
 - Faster and more flexible as lists: you can go straight to the item you need based on its key
 - we assign the key to a specific value --> called **key-value pair**
@@ -390,8 +390,32 @@ print(my_dict)          # {1: 'Coffee', 2: 'Mint Tea', 3: 'Cocoa'}
 ```
 - If I try to add a duplicate key, it doesn't allow this, keys must be unique
 
+### Args and kwargs(keyword arguments)
+- benefits: you can pass any amounts of **non-keyword variables and keyword arguments**
+- **ARGS: non-keyword variables**
+- Instead of passing 3 arguments, using *args will alow to pass any arguments by calling the function 
+```
+def sum_of(*args):
+    sum = 0
+    for x in args:
+        sum += x
+    return sum
 
-### Exceptions, Errors, Exception handling
+print(sum_of(4, 5, 6)) # 15
+```
+- **KWARGS: keyword arguments**
+- let's calculate the total bill in a restaurant
+```
+sum_of(**kwargs):
+    sum = 0
+    for key, value in kwargs.items():
+        sum += value
+    return round(sum, 2)
+
+print(sum_of(coffee=2.99, cake=4.55, juice=2.89))
+```
+
+### Exceptions, Errors, Exception handling / + 13_exception_handling.py
 1. **Syntax Error**: 
     - usually caused by the developer (misspelling/typo or indentation issues)
     - has minimal impact, because most IDEs warns the developer and gives ideas how to fix them 
@@ -405,6 +429,19 @@ print(my_dict)          # {1: 'Coffee', 2: 'Mint Tea', 3: 'Cocoa'}
         - KeyError: dictionary key not found
         - FileNotFoundError: file doesn't exist
 
+### File handling functions: open() and close()
+- Open:
+    - ```open()``` function is used for reading, writing and creating files 
+    - open() function accepts 2 arguments --> open(<file_name> OR <file_location>, <mode>)
+        - mode indicates the action --> reading, writing, creating
+            - 'r' --> open and read in text format
+            - 'rb' --> open and read in binary format
+            - 'r+' --> open, read and write 
+            - 'w' --> open for writing 
+            - 'a' --> open for editing or appending 
+    - ```close()``` function: no arguments, it closes the open connection 
+    - ```with open()``` function: it closes the file automatically, and better with exception handling
+        
 
 
 ### Sources: 
