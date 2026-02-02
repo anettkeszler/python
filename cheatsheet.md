@@ -429,7 +429,7 @@ print(sum_of(coffee=2.99, cake=4.55, juice=2.89))
         - KeyError: dictionary key not found
         - FileNotFoundError: file doesn't exist
 
-### File handling functions: open() and close()
+### File handling functions: open() and close() / + 14_file_handling.py
 - Open:
     - ```open()``` function is used for reading, writing and creating files 
     - open() function accepts 2 arguments --> open(<file_name> OR <file_location>, <mode>)
