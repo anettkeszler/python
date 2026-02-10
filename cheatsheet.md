@@ -442,7 +442,150 @@ print(sum_of(coffee=2.99, cake=4.55, juice=2.89))
     - ```close()``` function: no arguments, it closes the open connection 
     - ```with open()``` function: it closes the file automatically, and better with exception handling
         
+### Modules / + import_modules.py
+- They are building blocks for adding functionalities to your code, so you don't need to continually redo everything 
+- any file with .py extension can be a module
+- Advantages of using modules:
+    - **Scoping** means that modules create a separate namespace: 2 different modules can have functions with the same name 
+    - **Reusability**: most important advantage
+    - **Simplicity**: each module is built with a simple purpose in mind, and helps avoiding interdependency among these modules 
+- Modules are defined by their usage > Regular expression module managing regular expressions 
+- Types of Modules: different in these modules is the way they are accessed 
+    1. **Built-in modules**: part of the standard Python library 
+            import math: the interpreter first tries to find a built-in modules 
+            Since code execution in Python is serial, you must import the module first before you execute any function inside of it 
+    2. **User-defined modules** 
 
+#### Accessing modules:
+- any python file can be a module (import sample --> will import the sample.py file)
+- the modules are searched by the interpreter in the following sequence: 
+    1. current directory path 
+    2. built-in module directory 
+    3. PYTHONPATH (and environment variable with a list of directories)
+    4. Installation dependent default directory 
+
+- command+click on the module to explore all the functionalities
+
+#### Writing Import statements
+- importing the whole math module
+```
+import math 
+math.sqrt(9)
+```
+- instead of loading the entire module, import only the sqrt function
+```
+from math import sqrt
+sqrt(9)
+```
+- Use alias for the module name
+```
+import math as m
+m.cos(0)
+```
+```
+from math import sqrt as s
+s(9)
+```
+- import a list of functions from a module:
+```
+from math import sqrt, factorial, cosine
+```
+- import all functions from a module: (not recommended)
+```
+from match import * 
+```
+
+-dir() function: returns all functions in a module
+```
+print(dir(math))
+```
+#### reload() function
+- reloads an imported module in Python 
+- reload() function is in the importlib module (import importlib)
+
+### Modules, packages, libraries
+- **Modules**: a module is a single .py file containing Python code. When you import a module, you bring its definitions and statements into your current script’s namespace.
+- **Packages**: is a collection of related modules organized in a directory hierarchy. The presence of an __init__.py file within a directory signals to Python that it’s a package. This allows for a more structured way to manage multiple modules that work together.
+- **Library**: it refers to a collection of packages. This is the broadest term, referring to a collection of pre-written code used to perform specific tasks. A library can be composed of single modules, multiple packages, or a mix of both. The Python Standard Library is a prime example, offering a vast array of functionalities. Essentially, all packages are a type of library, but not all libraries are necessarily structured as multi-module packages.
+
+- To install packages that are not a part of the standard library, use pip (package installer for Python). 
+- To check the status of pip installation:
+```
+python -m ensurepip --upgrade
+```
+- To install packages:
+```
+python3 -m pip install "SomePackage"
+python3 -m pip install requests
+```
+- The packages that you can install often have a number of classes, functions, sub-packages and members. 
+
+- sub-packages: 
+to import a sub-package:
+```
+import matplotlib.pyplot
+```
+
+### Packages
+- Packages are bundled collection of modules serving a specific purpose
+- a package is a directory or folder (vs module, which is a file)
+```
+from <package> import <module>
+```
+- 'module' holds the function we want to use
+- pip: package manager
+- PyPI: Python Package Index, where you can find unpublished packages
+- Package categories:
+    - **Built-in packages**: no need to install (os, sys, csv, json, importlib, re, math, intertools)
+    - **Data Science**: for data manipulation: numPy, sciPy, Pandas; for data visualization and image processing: open cv, matplotlib
+    - **Mechine Learning and AI**: PyTorch, Tensorflow, Keras, SciPy, Scikit-learn 
+    - **Web and GUI Development**: Flask (lightweight micro-framework), Django (full stack framework), cherry pie, pyramid, selenium, beautiful soup
+#### Data analysis packages
+- Most popular packages:
+    - **Scikit-learn**
+    - **Pandas**: Python Data Analysis 
+        - cleaning, analyzing and manipulating data
+        - primary data structure used in pandas are Series(single dimensional) and DataFrames(multi-dimensional)
+        - pandas most common applications are reading csv files and json objects 
+        - ```import pandas as pd```
+    - **NumPy**: Numerical Python, 
+        - powerful library forming the base for libraries such as Scikit-learn, Scipy, Metplotlib
+        - commonly used data structure is nd-array (n-dimensional array)
+        - ```import numpy as np```
+    - **Matplotlib**: visualization library 
+        - static, interactive and animated visualizations
+        - ```import matplotlib.pyplot as plt```
+#### Machine Learning and AI packages:
+- machine learning is a subsection of AI and deals with algorithms for training and generating insights from data 
+- some fields in ML:
+    - natural language processing 
+    - deep learning 
+    - sentiment analysis
+    - recommender engines 
+    - speech recognition  
+#### Big Data Analysis
+- Data Source --> Data Storage --> Filter & Transform Data --> Analysis and Stroage --> Report and Visualization
+- Libraries that are specific to Big Data analysis:
+    - RedShift
+    - BigQuery
+    - PySpark
+    - Kafka
+    - Pydoop
+#### Web frameworks
+- software applications designed to provide a standard way to build, deploy and support web applications 
+- helps developer to focus on application logic by automating redundand tasks 
+- reliable, stable and easily maintainable, saving time and effort 
+- helps to handle tasks, such as form processing, routing request, connection with databases, user authentication. 
+- they provide debugging and testing tools 
+- 3 types of web frameworks in Python: 
+    - fullstack(Django, Pyramid): includes form generations and validations, template layouts, HTTP rrequest handling, webserver connections, database connection handling 
+    - microframeworks(Flask, Bottle, Dash, CherryPy): used in smaller web projects and building APIs
+    - asynchronus: handles a large sets of concurrent connections 
+
+
+
+### Libraries
+- Libraries are collection of packages with specific purpose 
 
 ### Sources: 
 
@@ -461,6 +604,12 @@ https://runestone.academy/ns/books/published/pythonds/index.html
 - More On Data Structures:<br>
 https://realpython.com/python-data-structures/ <br>
     Lists: https://docs.python.org/3/tutorial/datastructures.html
+
+- Modules, packages, libraries: <br>
+https://www.digitalocean.com/community/tutorials/how-to-import-modules-in-python-3
+
+- Packages: 
+https://realpython.com/python-modules-packages/#python-packages
 
 
 # TODO

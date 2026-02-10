@@ -32,3 +32,25 @@ def func_1():
     func_2()
 
 print(func_1())
+
+
+# animalfarm
+print("Animalfarm:")
+def d():
+    animal = "elephant"
+    def e():
+        nonlocal animal
+        animal = "giraffe"
+        print(f"Inside nested function: {animal}")
+
+    print(f"Before calling function: {animal}")
+    e()
+    print(f"After nested function: {animal}")
+
+animal = "camel"
+d()
+print(f"Global animal: {animal}")
+
+# The nonlocal keyword is used to work with variables inside nested functions, 
+# where the variable should not belong to the inner function.
+
