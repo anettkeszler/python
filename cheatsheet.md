@@ -441,8 +441,79 @@ print(sum_of(coffee=2.99, cake=4.55, juice=2.89))
             - 'a' --> open for editing or appending 
     - ```close()``` function: no arguments, it closes the open connection 
     - ```with open()``` function: it closes the file automatically, and better with exception handling
-        
-### Modules / + import_modules.py
+
+### Programming Paradigms in Python 
+- The main purpose of a programming model is to structure your code
+- In Python, we use 3 ways to structure our code:
+    - **Procedural**
+    - **Functional**
+    - **Object Oriented**
+- DRY - Don't Repeat Yourself  
+- You will likely use a combined approach that relies on procedural, object oriented and functional programming paradigms 
+
+### Procedural paradigms / 15_procedural_programming.py
+- writing step-by-step instructions that program executes
+- is an imperative programming paradim based on the concept of modularity, where programs are organized into sequence of instructions, routines or subroutines (functions) to achieve a goal
+- it emphasizes a top-down, step-by-step approach, making ideal for smaller projects and often for learning programming fundamentals
+- key aspects:
+    - Procedures/Functions: the code is broken down into reusable, self-contained block of code
+    - Linear control flow: program follows a sequential, top-down structure, executing instruction in a specific order
+    - Data and Procedures Separation: data and procedures are treated as distinct entities, with data often stored in global or local variables.
+    - Modularization: Complex problems are broken down into smaller, manageable, and independent procedures, which helps with code organization and maintenance.
+    - Control Structures: It utilizes loops, conditionals, and sequence to manage the execution flow.
+- Pros: easy to understand, learn and debug, efficient for small to medium tasks, code reusability
+- Cons: becomes difficult to manage for large and complex system, poor data security due to reliance on global data
+ 
+ #### Algoritms
+ - an algoritm is a series of steps to solve a problem 
+ - refactoring an algoritm is a standard part of the software development cyclem, to making it faster or to perform better
+ - code is measured by:
+    - time (how long it takes to run the code)
+    - space(how much memory it uses)
+ - an algorithm efficiency is measured by BigO Notation in terms of time and space 
+ - **Big O notation** is a fundamental concept in computer science and programming that helps you analyze and describe the efficiency of algorithms. It provides a standardized way of expressing how the runtime or resource usage of an algorithm grows as the size of the input data increases.
+    - **Constant time - O(1)** :  
+        - same time and space regardless of the size
+        - the runtime does not depend on the size of the input data
+        - it remains constant, making it the **most efficient scenario**.
+        - Example:
+            - **dictionary**: to get the value of an item you need to have the key
+            - the key is a direct pointer to the value and does not require any iteration to find 
+            - Accessing an element in an array by its index
+    - **Linear time - O(n)**: 
+        - this will grow depending on the size of the input 
+        - array of integers with a range of 100, it will very fast. But if it increased to 1 million, it take a lot longer to complete 
+        - Example: 
+             - Searching for a specific value in an unsorted list
+    - **Logaritmic time - O(log n)**: 
+        - the runtime grow logarithmically with the size of the input data
+        - Logarithmic time complexity is considered very efficient
+        - binary search: it splitting the list into 2 parts , and each time to check if a target is less than or greater than one. 
+    - **Quadratic time - O (n^2)**: 
+        -  the runtime grow with the square of the input size
+        - Example: 
+            - nested list
+            - Bubble Sort
+    - **Exponencial time - O(2^n)**:
+        - this occurs in algorithms where for each increase in the size of the data set, the runtime is doubled. 
+        - fibonacci 
+    - **Factorial runtime - O(n!)**:
+        - terrible runtime 
+        - Any algorithm that performs permutation on a given data set is an example of O(n!)
+#### **A Quick Breakdown**:
+- Fastest: **Constant time** - **O(1)** Lightning-fast! - accessing a value based on its key in a dictionary , or in an array by its index
+- Pretty Fast: **O(log n**) - **Logarithmic Time**: Still quite speedy! It grows slowly as you add more data. - binary search 
+- Moderate: **O(n)** - **Linear Time:** Respectable speed! If you have twice as much data, it takes about twice as long. It's like looking through a list of names one by one to find a match.
+- Slower: **O(n log n)** - **Linearithmic Time**: It's faster than quadratic but slower than linear. An example of O(n log n) time complexity is the Merge Sort algorithm, which divides an array into smaller parts, sorts them, and then merges them back together.
+- Slower Still: **O(n^2)** - **Quadratic Time**: Getting slower as you add data. Like checking every combination of items on a list against each other – not great for large lists, like Bubble sort
+- Quite Slow: **O(2^n)** - **Exponential Time**: Now we're talking about slow! It grows rapidly as you add data. Imagine a puzzle where you have to try every possible combination – it's really slow even for small puzzles.
+- Incredibly Slow: **O(n!)** - **Factorial Time**: The slowest of all! It's like solving a complex puzzle where the number of possible arrangements explodes as you add more pieces. Practically unusable for large problems. An example of O(n!) time complexity is generating all possible arrangements (permutations) of a list of items, like finding all possible seating arrangements for a group of people.
+
+### Functional Programming
+
+
+
+### Modules / + 18_import_modules.py
 - They are building blocks for adding functionalities to your code, so you don't need to continually redo everything 
 - any file with .py extension can be a module
 - Advantages of using modules:
@@ -571,6 +642,8 @@ from <package> import <module>
     - PySpark
     - Kafka
     - Pydoop
+### Libraries
+- Libraries are collection of packages with specific purpose 
 #### Web frameworks
 - software applications designed to provide a standard way to build, deploy and support web applications 
 - helps developer to focus on application logic by automating redundand tasks 
@@ -582,10 +655,151 @@ from <package> import <module>
     - microframeworks(Flask, Bottle, Dash, CherryPy): used in smaller web projects and building APIs
     - asynchronus: handles a large sets of concurrent connections 
 
+### Testing
+- Testing is a process of evaluating and verifying the various software applications and products in terms of performance ,correctness and completeness 
+- It helps identify bugs , gaps in a product, defects, missing requirements 
+- Nowdays testing are integrated at the early stages of development (TDD)
+#### Types of Testing
+1. Unit/Component testing: the program tests specific individual components by isolating them. You usually write these tests while writing the code 
+2. Integration Testing: combines the unit test, and test the flow of data from one component to another. You test if the data is correctly fetched from a database within the python code, and if you have sent it to the web page  
+3. System Testing: tests all the software 
+4. Acceptance Testing: ready for deployment, it's expected to be bug free and meet the set standards 
 
+- White box texting: tester has knowledge of the code design and functionalities 
+- Black box testing: the tester has no idea about the internal implementation
 
-### Libraries
-- Libraries are collection of packages with specific purpose 
+- keywords: testing early and testing frequently
+
+#### Test automation packages / + 19_addition.py, 19_test_addition.py
+- units, regresssion, integration tests: they can be automated 
+- Ideal steps are: 1. preparing test environment --> 2. run the test script --> 3. analyzing the result 
+- Unittest/PyUnit: built-in testing package, it supports test automation, independent testing modules, aggregation of tests into collections 
+- **Pytest**: native python library, most popular testing framework for automation
+- Robot: Keyword-driven development capabilities, used for acceptance testing, robotic process automation, and TDD 
+- Selenium: primariliy used for web application testing 
+- in our test file: (test_addition.py) 
+```
+import addition (name of the file we want to test)
+import pytest
+```
+- to run the test file:
+```
+python3 -m pytest test_addition.py
+python3 -m pytest test_addition.py::test_add
+```
+- some other flag options:
+```
+-v for verbose
+-q quiet mode
+-s allows the print statement inside the functions to be executed
+-x is to flag the tests to stop execution after first failure
+-m is used to mark a specific function
+-k is a flag for searching and running tests with a specific keyword
+--tb is to disable the traceback code of errors
+--maxfail n specifies maximum number of test fails allowed
+```
+### Test Driven Development (TDD)
+- in TDD write the tests first and than the code, so that tests will pass 
+- TDD follows an iterative approach beginning with writing the test cases 
+- Red-green refactor cycle:
+    - step1: write the test for a feature that fails 
+    - step2: write code in accordance with the test
+    - step3: run the tests expecting them to fail 
+    - step4: evaluate the error and refactor the code as needed 
+    - step5: rerun the process 
+#### TDD vs traditional testing / 20_findstring.py, 20_test_findstring.py
+- TDD: 
+    - requirements and standards are highlighted from the beginning 
+    - working in cycles over the code gives the competence to easy to refactor 
+    - smaller code with early bug fixes 
+    - code extensibility 
+- Traditional testing: 
+    - code then test
+
+### Functional Programming / + 16_functional_programming.py
+- Pure function does not change or have any effect on a variable, data, list etc beyond its own scope 
+- Pure functions: cannot access and modify variables on the global state, only in the local state 
+- Traditional functions: can access and modify both global and local variables 
+- Pure functions: output does depend on the input 
+- Traditional functions: the output doesn't depend on inputs
+- Functional programming is a programming paradigm that utilizes functions for clean, consistent and maintainable code 
+- It doesn't change the data outside the scope of the function 
+- the language allows function to be passed as an argument and return a function to its caller 
+ - A pure function will keep your code cleaner, easier to debug and easier to extend 
+#### Recursion
+- is a function that calls itself 
+- it creates a pattern of repeating itself over and over 
+- always consider the result, otherwise it will end in an infinite loop 
+- reverse a string with recursion:
+```
+def string_reverse(str):
+    if len(str) == 0:
+        return str
+    else:
+        return string_reverse(str[1:]) + str[0]
+    
+print(string_reverse("reversal"))
+```
+#### Map and filter
+- to process a list and generate a new list 
+- map() function: takes the function as an argument and passes the menu list values into the function one-by-one 
+- difference between map and filter: 
+    - map() takes all objects in the list and allows you apply a function to it 
+    - filter() do the same, but take the results and creates a new list with only the true values 
+
+### Comprehension
+- Comprehensions are a way to create a new sequence from an already existing sequence
+1. **List Comprehension**:
+- Comprehensions provide a short-hand and elegant way of updating sequences.
+```
+[ <expression> for x in <sequence> if <condition>] 
+```
+2. **Dictionary Comprehension**:
+- Dictionary comprehension takes one or two lists as input and creates a dictionary out of it.
+```
+dict = { key:value for key, value in <sequence> if <condition> } 
+new_dict ={key:value for (key, value) in zip(list1, list2)}
+```
+- When the two lists are of unequal length, the length of the shorter list is the length of the dictionary.
+3. **Set Comprehension**:
+- The set comprehension deals with the set data type and it's very similar to list comprehension. 
+- The only key difference is the use of curly brackets for sets instead of square brackets as in lists.
+- 'not in' keyword
+```
+set_a = {x for x in range(10, 20) if x not in [12, 14, 16]}
+```
+4. **Generator Comprehension**: 
+- Generator comprehensions are also very similar to lists with the variation of using curved brackets instead of square brackets. 
+- They are also more memory efficient as compared to list comprehensions.
+```
+<class 'generator'> 
+2 3 5 7 11 13 17 19 23 29 31 
+```
+In the code above, I created a generator object of the class generator instead of a list. 
+- The elements in this iterator object cannot be directly accessed and need the help of a for loop and as such, I iterate over these elements and print them.
+
+### List comprehension vs map() function:
+```
+def square(num):
+    return num * 2
+
+newdata = map(square, data)
+
+newdata = [x + 3 for x in data] 
+```
+- Notice how both map() functions and list comprehension effectively do the same job of modifying iterator sequences such as the list in the example above.
+- List comprehensions provide direct return of a list as compared to map() function that returns a map object. It is mainly the clarity that has made list comprehensions popular, but map() functions are still arguably a better choice when it comes to the use of larger sequences.
+
+### Virtual environments
+- Use venvs to isolate project packages from the system-wide Python packages
+- Create virtual environment:
+```
+python -m venv .venv
+```
+- activate virtual environment (mac):
+```
+source .venv/bin/activate
+```
 
 ### Sources: 
 
@@ -610,6 +824,27 @@ https://www.digitalocean.com/community/tutorials/how-to-import-modules-in-python
 
 - Packages: 
 https://realpython.com/python-modules-packages/#python-packages
+
+- Testing: <br>
+https://testdriven.io/blog/modern-tdd/ <br>
+https://stackabuse.com/test-driven-development-with-pytest/ <br>
+https://docs.pytest.org/en/7.1.x/ <br>
+https://www.geeksforgeeks.org/python/best-python-modules-for-automation/
+
+- BigO Notations:
+https://dev.to/sarah_chima/the-big-o-notation-an-introduction-34f7
+
+- Different types of algorithms used in Python:
+https://www.thetechplatform.com/post/different-types-of-algorithms-in-data-structure
+
+- Functional programming:
+https://stackabuse.com/functional-programming-in-python/
+
+- List comprehension:
+https://www.upgrad.com/blog/python-list-comprehension/
+
+- Recursion:
+https://realpython.com/python-recursion/
 
 
 # TODO
